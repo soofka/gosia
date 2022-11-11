@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <title>Gosia</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff2f2;
+      }
+
+      h2 {
+        margin: 16px 0;
+      }
+
+      ol li {
+        margin: 0 0 8px 32px;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        flex-flow: row-reverse wrap;
+        background: #ffd3d4;
+      }
+
+      .logo {
+        flex-grow: 1;
+      }
+
+      .intro {
+        flex-grow: 2;
+      }
+
+      main {
+        display: flex;
+        flex-flow: row wrap;
+        background: #ffd3d4;
+      }
+
+      .input {
+        flex-grow: 1;
+      }
+
+      .output {
+        flex-grow: 1;
+        background: #ed858e;
+      }
+
+      input {
+        padding: 2px 4px;
+      }
+
+      button {
+        border: none;
+        background: #ed858e;
+        margin: 16px;
+        padding: 16px 32px;
+        cursor: pointer;
+        float: right;
+      }
+
+      button:hover {
+        box-shadow: 0 0 2px 4px #ed858e;
+      }
+
+      .container {
+        padding: 8px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 4px 0 4px 16px;
+      }
+
+      .validation-success {
+        border: 1px solid #0f0;
+      }
+
+      .validation-failure {
+        border: 1px solid #f00;
+      }
+    </style>
+    <div class="wrapper">
+      <header class="container">
+        <div class="logo">logo</div>
+        <div class="intro">
+          <h2 style="margin-top:0">Instrukcja</h2>
+          <ol>
+            <li><p>do this</p></li>
+            <li><p>do that</p></li>
+          </ol>
+        </div>
+      </header>
+      <main>
+        <div class="input container">
+          <form>
+            <div class="sample">
+              <h2>Próbka</h2>
+              <div class="row">
+                  <label for="stitches">10 cm = (oczek)</label>
+                  <input type="number" name="stitches" id="stitches" value="0" />
+              </div>
+              <div class="row">
+                <label for="rows">10 cm = (rzędów)</label>
+                <input type="number" name="rows" id="rows" value="0" />
+              </div>
+            </div>
+            <div class="dimensions">
+              <h2>Wymiary</h2>
+              <div class="row">
+                <label for="body-width">szerokość korpusu (<strong>A</strong>)</label>
+                <input type="number" name="body-width" id="body-width" value="0" />
+              </div>
+              <div class="row">
+                <label for="sleeve-length">długość rękawa (<strong>C</strong>)</label>
+                <input type="number" name="sleeve-length" id="sleeve-length" value="0" />
+              </div>
+              <div class="row">
+                <label for="body-length">długość korpusu (<strong>E</strong>)</label>
+                <input type="number" name="body-length" id="body-length" value="0" />
+              </div>
+              <div class="row">
+                <label for="neckline-finish-length">długość wykończenia dekoltu (<strong>F</strong>)</label>
+                <input type="number" name="neckline-finish-length" id="neckline-finish-length" value="0" />
+              </div>
+              <div class="row">
+                <label for="sleeve-width-at-body">szerokość rękawa przy korpusie (<strong>H/h</strong>)</label>
+                <input type="number" name="sleeve-width-at-body" id="sleeve-width-at-body" value="0" />
+              </div>
+              <div class="row">
+                <label for="sleeve-width-at-wrist">szerokość rękawa przy nadgarstku (<strong>I</strong>)</label>
+                <input type="number" name="sleeve-width-at-wrist" id="sleeve-width-at-wrist" value="0" />
+              </div>
+              <div class="row">
+                <label for="body-and-sleeves-finish-length">długość wykończenia korpusu i rękawów (<strong>J</strong>)</label>
+                <input type="number" name="body-and-sleeves-finish-length" id="body-and-sleeves-finish-length" value="0" />
+              </div>
+              <button type="submit">Oblicz</button>
+            </div>
+          </form>
+        </div>
+        <div class="output container">
+          <h2>Wyniki</h2>
+          <p class="row">
+            <span>A =</span>
+            <span class="output-A"></span>
+          </p>
+          <p class="row">
+            <span>D =</span>
+            <span class="output-D"></span>
+          </p>
+          <p class="row">
+            <span>F =</span>
+            <span class="output-F"></span>
+          </p>
+          <p class="row">
+            <span>H =</span>
+            <span class="output-H"></span>
+          </p>
+          <p class="row">
+            <span>h =</span>
+            <span class="output-hh"></span>
+          </p>
+          <p class="row">
+            <span>I =</span>
+            <span class="output-I"></span>
+          </p>
+          <p class="row">
+            <span>J =</span>
+            <span class="output-J"></span>
+          </p>
+          <p class="row">
+            <span>K =</span>
+            <span class="output-K"></span>
+          </p>
+          <p class="row">
+            <span>L =</span>
+            <span class="output-L"></span>
+          </p>
+          <p class="row">
+            <span>Y =</span>
+            <span class="output-Y"></span>
+          </p>
+          <p class="row">
+            <span>Z =</span>
+            <span class="output-Z"></span>
+          </p>
+        </div>
+      </main>
+      <footer class="container">
+        <small>contact: instagram, email</small>
+      </footer>
+    </div>
+    <script>
+      const mround = (number, roundTo) => number === 0 || roundTo === 0 ? 0 : roundTo * Math.round(number/roundTo);
+
+      const validateInput = (input) => {
+        input.classList.remove('validation-failure', 'validation-success');
+
+        const intValue = parseInt(input.value);
+        const result = !isNaN(parseInt(intValue)) && intValue > 0;
+
+        input.classList.add(result ? 'validation-success' : 'validation-failure');
+
+        return result;
+      }
+
+      for (const input of document.querySelectorAll('.input input')) {
+        input.addEventListener('blur', () => validateInput(input));
+      }
+
+      document.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        let validationResult = true;
+
+        for (const input of document.querySelectorAll('.input input')) {
+          const singularValidationResult = validateInput(input);
+          if (!singularValidationResult) {
+            validationResult = false;
+          }
+        }
+
+        if (!validationResult) {
+          return;
+        }
+        
+        const stitches = parseInt(document.querySelector('input#stitches').value);
+        const rows = parseInt(document.querySelector('input#rows').value);
+        
+        const bodyWidth = parseInt(document.querySelector('input#body-width').value);
+        const sleeveLength = parseInt(document.querySelector('input#sleeve-length').value);
+        const bodyLength = parseInt(document.querySelector('input#body-length').value);
+        const necklineFinishLength = parseInt(document.querySelector('input#neckline-finish-length').value);
+        const sleeveWidthAtBody = parseInt(document.querySelector('input#sleeve-width-at-body').value);
+        const sleeveWidthAtWrist = parseInt(document.querySelector('input#sleeve-width-at-wrist').value);
+        const bodyAndSleevesFinishLength = parseInt(document.querySelector('input#body-and-sleeves-finish-length').value);
+        
+        const outputA = Math.round(0.1 * stitches * bodyWidth);
+        const outputD = Math.round(0.1 * stitches * 2);
+        const outputF = Math.round(0.1 * rows * necklineFinishLength);
+        const outputH = Math.round(0.1 * rows * sleeveWidthAtBody);
+        const outputh = Math.round(0.1 * stitches * sleeveWidthAtBody);
+        const outputI = Math.round(0.1 * stitches * sleeveWidthAtWrist);
+        const outputJ = Math.round(0.1 * rows * bodyAndSleevesFinishLength);
+        const outputY = Math.round(outputA - 2 * outputD);
+        const outputZ = Math.round(((sleeveLength - bodyAndSleevesFinishLength) * 0.1 * rows)/((2 * outputh + 2 * outputD - 2 * outputI)/2))
+        const outputK = Math.round((0.1 * rows * bodyLength) - (2 * outputY + 2 - outputA)/2 + outputH + outputJ);
+        const outputL = mround((sleeveLength - bodyAndSleevesFinishLength) * 0.1 * rows, outputZ);
+
+        document.querySelector('.output-A').textContent = outputA;
+        document.querySelector('.output-D').textContent = outputD;
+        document.querySelector('.output-F').textContent = outputF;
+        document.querySelector('.output-H').textContent = outputH;
+        document.querySelector('.output-hh').textContent = outputh;
+        document.querySelector('.output-I').textContent = outputI;
+        document.querySelector('.output-J').textContent = outputJ;
+        document.querySelector('.output-K').textContent = outputK;
+        document.querySelector('.output-L').textContent = outputL;
+        document.querySelector('.output-Y').textContent = outputY;
+        document.querySelector('.output-Z').textContent = outputZ;
+      });
+    </script>
+  </body>
+</html>

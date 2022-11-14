@@ -4,200 +4,268 @@
   </head>
   <body>
     <style>
+      :root {
+        --grid: 8px;
+        --font-size: 12px;
+        --font-size-val: 12;
+        --page-min-size: 320px;
+        --page-min-size-val: 320;
+        --page-max-size: 960px;
+        --page-max-size-val: 960;
+
+        --white: rgba(255, 255, 255, 1);
+        --black: rgba(0, 0, 0, 1);
+        --pink-1: rgba(255, 242, 242, 1);
+        --pink-2: rgba(255, 211, 212, 1);
+        --pink-2-light: rgba(255, 211, 212, 0.76);
+        --pink-3: rgba(237, 133, 142, 1);
+        --pink-3-light: rgba(237, 133, 142, 0.88);
+        --success: rgba(112, 163, 78, 1);
+        --failure: rgba(196, 46, 28, 1);
+      }
+
       * {
-        font-family: Arial, Helvetica, sans-serif;
         margin: 0;
         padding: 0;
       }
 
-      body {
-        background: #fff2f2;
+      html, body {
+        color: var(--black);
+        background: var(--pink-1);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: calc(var(--font-size) + (var(--font-size-val)/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        font-style: normal;
+        font-variant: normal;
+        line-height: normal;
+      }
+
+      h1 {
+        font-size: calc((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        margin: calc(((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
       }
 
       h2 {
-        margin: 16px 0;
+        font-size: calc((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        margin: calc(((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
       }
 
-      ol li {
-        margin: 0 0 8px 32px;
+      h3 {
+        font-size: calc((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        margin: calc(((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
+      }
+
+      h4, p, label, input, button {
+        font-size: calc(var(--font-size) + (var(--font-size-val)/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        margin: 0;
+      }
+
+      small {
+        font-size: calc((0.75 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        margin: 0;
       }
 
       .wrapper {
         display: flex;
         flex-direction: column;
-        max-width: 960px;
+        min-width: var(--page-min-size);
+        max-width: var(--page-max-size);
         margin: 0 auto;
       }
 
+      .container {
+        padding: calc(2 * var(--grid));
+      }
+
+      .rows-container {
+        background: var(--white);
+      }
+
+      .row {
+        padding: calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 3);
+      }
+
+      .validation__success {
+        box-shadow: 0 0 calc(var(--grid) / 8) calc(var(--grid) / 4) var(--success);
+      }
+
+      .validation__failure {
+        box-shadow: 0 0 calc(var(--grid) / 8) calc(var(--grid) / 4) var(--failure);
+      }
+
       header {
-        display: flex;
-        flex-flow: row-reverse wrap;
-        background: #ffd3d4;
-      }
-
-      .logo {
-        flex-grow: 1;
-      }
-
-      .intro {
-        flex-grow: 2;
+        padding: calc(var(--grid) * 2) var(--grid);
+        background: var(--pink-2);
+        text-align: center;
       }
 
       main {
         display: flex;
+        flex-direction: column;
+        background: var(--pink-2);
+      }
+
+      .calculator {
+        display: flex;
         flex-flow: row wrap;
-        background: #ffd3d4;
       }
 
-      .input {
+      .calculator--input {
         flex-grow: 1;
       }
 
-      .output {
+      .calculator--input .row {
+        background: var(--pink-2);
+        padding-bottom: calc(var(--grid) * 4);
+      }
+      
+      .calculator--input .row:nth-of-type(even) {
+        background:var(--pink-2-light);
+      }
+
+      .calculator--output {
         flex-grow: 1;
-        background: #ed858e;
+        background: var(--pink-3);
+        border-top: 1px solid var(--pink-3-light);
+        border-left: 1px solid var(--pink-3-light);
+        border-top-left-radius: var(--grid);
+      }
+
+      .calculator--output .row {
+        background: var(--pink-3);
+      }
+      
+      .calculator--output .row:nth-of-type(even) {
+        background:var(--pink-3-light);
       }
 
       input {
-        padding: 2px 4px;
+        display: inline;
+        float: right;
+        max-width: calc(16 * var(--grid));
+        padding: calc(var(--grid) / 2) var(--grid);
       }
 
       button {
         border: none;
-        background: #ed858e;
-        margin: 16px;
-        padding: 16px 32px;
+        background: var(--pink-3);
+        margin: calc(var(--grid) * 2);
+        padding: calc(var(--grid) * 2) calc(var(--grid) * 4);
         cursor: pointer;
         float: right;
       }
 
       button:hover {
-        box-shadow: 0 0 2px 4px #ed858e;
-      }
-
-      .container {
-        padding: 8px;
-      }
-
-      .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 4px 0 4px 16px;
-      }
-
-      .validation-success {
-        border: 1px solid #0f0;
-      }
-
-      .validation-failure {
-        border: 1px solid #f00;
+        background: var(--pink-3-light);
+        box-shadow: 0 0 calc(var(--grid) / 4) calc(var(--grid) / 2) var(--pink-3-light);
       }
     </style>
     <div class="wrapper">
-      <header class="container">
-        <div class="logo">logo</div>
-        <div class="intro">
-          <h2 style="margin-top:0">Instrukcja</h2>
-          <ol>
-            <li><p>do this</p></li>
-            <li><p>do that</p></li>
-          </ol>
-        </div>
+      <header>
+        <h1>Sweterek by Gosia</h1>
       </header>
       <main>
-        <div class="input container">
-          <form>
-            <div class="sample">
-              <h2>Próbka</h2>
-              <div class="row">
-                  <label for="stitches">10 cm = (oczek)</label>
-                  <input type="number" name="stitches" id="stitches" value="0" />
+        <img src="swetr.jpg" alt="Sweterek by Gosia" />
+        <div class="calculator">
+          <div class="calculator--input container">
+            <form>
+              <div class="sample">
+                <h2>Próbka</h2>
+                <div class="rows-container">
+                  <div class="row">
+                      <label for="stitches">10 cm = (oczek)</label>
+                      <input type="number" name="stitches" id="stitches" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="rows">10 cm = (rzędów)</label>
+                    <input type="number" name="rows" id="rows" value="0" />
+                  </div>
+                </div>
               </div>
-              <div class="row">
-                <label for="rows">10 cm = (rzędów)</label>
-                <input type="number" name="rows" id="rows" value="0" />
+              <div class="dimensions">
+                <h2>Wymiary</h2>
+                <div class="rows-container">
+                  <div class="row">
+                    <label for="body-width">szerokość korpusu (<strong>A</strong>)</label>
+                    <input type="number" name="body-width" id="body-width" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="sleeve-length">długość rękawa (<strong>C</strong>)</label>
+                    <input type="number" name="sleeve-length" id="sleeve-length" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="body-length">długość korpusu (<strong>E</strong>)</label>
+                    <input type="number" name="body-length" id="body-length" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="neckline-finish-length">długość wykończenia dekoltu (<strong>F</strong>)</label>
+                    <input type="number" name="neckline-finish-length" id="neckline-finish-length" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="sleeve-width-at-body">szerokość rękawa przy korpusie (<strong>H/h</strong>)</label>
+                    <input type="number" name="sleeve-width-at-body" id="sleeve-width-at-body" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="sleeve-width-at-wrist">szerokość rękawa przy nadgarstku (<strong>I</strong>)</label>
+                    <input type="number" name="sleeve-width-at-wrist" id="sleeve-width-at-wrist" value="0" />
+                  </div>
+                  <div class="row">
+                    <label for="body-and-sleeves-finish-length">długość wykończenia korpusu i rękawów (<strong>J</strong>)</label>
+                    <input type="number" name="body-and-sleeves-finish-length" id="body-and-sleeves-finish-length" value="0" />
+                  </div>
+                </div>
+                <button type="submit">Oblicz</button>
               </div>
+            </form>
+          </div>
+          <div class="calculator--output container">
+            <h2>Wyniki</h2>
+            <div class="rows-container">
+              <p class="row">
+                <span>A =</span>
+                <span class="output-A">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>D =</span>
+                <span class="output-D">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>F =</span>
+                <span class="output-F">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>H =</span>
+                <span class="output-H">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>h =</span>
+                <span class="output-hh">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>I =</span>
+                <span class="output-I">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>J =</span>
+                <span class="output-J">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>K =</span>
+                <span class="output-K">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>L =</span>
+                <span class="output-L">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>Y =</span>
+                <span class="output-Y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
+              <p class="row">
+                <span>Z =</span>
+                <span class="output-Z">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </p>
             </div>
-            <div class="dimensions">
-              <h2>Wymiary</h2>
-              <div class="row">
-                <label for="body-width">szerokość korpusu (<strong>A</strong>)</label>
-                <input type="number" name="body-width" id="body-width" value="0" />
-              </div>
-              <div class="row">
-                <label for="sleeve-length">długość rękawa (<strong>C</strong>)</label>
-                <input type="number" name="sleeve-length" id="sleeve-length" value="0" />
-              </div>
-              <div class="row">
-                <label for="body-length">długość korpusu (<strong>E</strong>)</label>
-                <input type="number" name="body-length" id="body-length" value="0" />
-              </div>
-              <div class="row">
-                <label for="neckline-finish-length">długość wykończenia dekoltu (<strong>F</strong>)</label>
-                <input type="number" name="neckline-finish-length" id="neckline-finish-length" value="0" />
-              </div>
-              <div class="row">
-                <label for="sleeve-width-at-body">szerokość rękawa przy korpusie (<strong>H/h</strong>)</label>
-                <input type="number" name="sleeve-width-at-body" id="sleeve-width-at-body" value="0" />
-              </div>
-              <div class="row">
-                <label for="sleeve-width-at-wrist">szerokość rękawa przy nadgarstku (<strong>I</strong>)</label>
-                <input type="number" name="sleeve-width-at-wrist" id="sleeve-width-at-wrist" value="0" />
-              </div>
-              <div class="row">
-                <label for="body-and-sleeves-finish-length">długość wykończenia korpusu i rękawów (<strong>J</strong>)</label>
-                <input type="number" name="body-and-sleeves-finish-length" id="body-and-sleeves-finish-length" value="0" />
-              </div>
-              <button type="submit">Oblicz</button>
-            </div>
-          </form>
-        </div>
-        <div class="output container">
-          <h2>Wyniki</h2>
-          <p class="row">
-            <span>A =</span>
-            <span class="output-A"></span>
-          </p>
-          <p class="row">
-            <span>D =</span>
-            <span class="output-D"></span>
-          </p>
-          <p class="row">
-            <span>F =</span>
-            <span class="output-F"></span>
-          </p>
-          <p class="row">
-            <span>H =</span>
-            <span class="output-H"></span>
-          </p>
-          <p class="row">
-            <span>h =</span>
-            <span class="output-hh"></span>
-          </p>
-          <p class="row">
-            <span>I =</span>
-            <span class="output-I"></span>
-          </p>
-          <p class="row">
-            <span>J =</span>
-            <span class="output-J"></span>
-          </p>
-          <p class="row">
-            <span>K =</span>
-            <span class="output-K"></span>
-          </p>
-          <p class="row">
-            <span>L =</span>
-            <span class="output-L"></span>
-          </p>
-          <p class="row">
-            <span>Y =</span>
-            <span class="output-Y"></span>
-          </p>
-          <p class="row">
-            <span>Z =</span>
-            <span class="output-Z"></span>
-          </p>
+          </div>
         </div>
       </main>
       <footer class="container">
@@ -208,17 +276,17 @@
       const mround = (number, roundTo) => number === 0 || roundTo === 0 ? 0 : roundTo * Math.round(number/roundTo);
 
       const validateInput = (input) => {
-        input.classList.remove('validation-failure', 'validation-success');
+        input.classList.remove('validation__failure', 'validation__success');
 
         const intValue = parseInt(input.value);
         const result = !isNaN(parseInt(intValue)) && intValue > 0;
 
-        input.classList.add(result ? 'validation-success' : 'validation-failure');
+        input.classList.add(result ? 'validation__success' : 'validation__failure');
 
         return result;
       }
 
-      for (const input of document.querySelectorAll('.input input')) {
+      for (const input of document.querySelectorAll('.calculator--input input')) {
         input.addEventListener('blur', () => validateInput(input));
       }
 
@@ -227,7 +295,7 @@
 
         let validationResult = true;
 
-        for (const input of document.querySelectorAll('.input input')) {
+        for (const input of document.querySelectorAll('.calculator--input input')) {
           const singularValidationResult = validateInput(input);
           if (!singularValidationResult) {
             validationResult = false;

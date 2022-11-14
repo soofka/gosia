@@ -97,6 +97,8 @@
       }
 
       .row {
+        display: flex;
+        flex-flow: row nowrap;
         padding: calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 3);
       }
 
@@ -131,7 +133,6 @@
 
       .calculator--input .row {
         background: var(--pink-2);
-        padding-bottom: calc(var(--grid) * 4);
       }
       
       .calculator--input .row:nth-of-type(even) {
@@ -143,7 +144,6 @@
         background: var(--pink-3);
         border-top: 1px solid var(--pink-3-light);
         border-left: 1px solid var(--pink-3-light);
-        border-top-left-radius: var(--grid);
       }
 
       .calculator--output .row {
@@ -155,10 +155,10 @@
       }
 
       input {
-        display: inline;
-        float: right;
         max-width: calc(16 * var(--grid));
         padding: calc(var(--grid) / 2) var(--grid);
+        margin-left: auto;
+        order: 2;
       }
 
       button {

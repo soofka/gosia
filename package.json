@@ -1,0 +1,21 @@
+{
+  "name": "dream-sweater",
+  "version": "0.0.2",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soofka/gosia.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soofka/gosia/issues"
+  },
+  "homepage": "https://github.com/soofka/gosia#readme",
+  "devDependencies": {
+    "html-minifier": "^4.0.0"
+  },
+  "type": "module"
+}

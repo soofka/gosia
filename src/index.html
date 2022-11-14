@@ -1,17 +1,23 @@
-<html>
+<html lang="pl">
   <head>
-    <title>Gosia</title>
+    <title>Your DREAM Sweater by dreamingyarn</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-language" content="pl"/>
+    <meta name="author" content="Jakub Sowiński <pansoofka@gmail.com> (https://soofka.pl)">
+    <meta name="description" content="Your DREAM Sweater by dreamingyarn">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
   </head>
   <body>
     <style>
       :root {
         --grid: 8px;
-        --font-size: 12px;
-        --font-size-val: 12;
+        --font-size: 20px;
         --page-min-size: 320px;
-        --page-min-size-val: 320;
         --page-max-size: 960px;
-        --page-max-size-val: 960;
 
         --white: rgba(255, 255, 255, 1);
         --black: rgba(0, 0, 0, 1);
@@ -33,34 +39,44 @@
         color: var(--black);
         background: var(--pink-1);
         font-family: Arial, Helvetica, sans-serif;
-        font-size: calc(var(--font-size) + (var(--font-size-val)/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        font-size: clamp(var(--font-size), calc(var(--font-size) + 0.5vw), calc(var(--font-size) * 3));
         font-style: normal;
         font-variant: normal;
         line-height: normal;
       }
 
+      a, a:visited {
+        color: var(--black);
+        text-decoration: none;
+      }
+
+      a:hover, a:active {
+        color: var(--black);
+        text-decoration: underline;
+      }
+
       h1 {
-        font-size: calc((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
-        margin: calc(((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((2 * var(--font-size)) + ((2 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
+        font-size: 2rem;
+        margin: 1rem 0 2rem 0;
       }
 
       h2 {
-        font-size: calc((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
-        margin: calc(((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((1.5 * var(--font-size)) + ((1.5 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
+        font-size: 1.5rem;
+        margin: 0.75rem 0 1.5rem 0;
       }
 
       h3 {
-        font-size: calc((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
-        margin: calc(((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))))/2) 0 calc((1.25 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val)))) 0;
+        font-size: 1.25rem;
+        margin: 0.625rem 0 1.25rem 0;
       }
 
-      h4, p, label, input, button {
-        font-size: calc(var(--font-size) + (var(--font-size-val)/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+      h4, p, span, label, input, button {
+        font-size: 1rem;
         margin: 0;
       }
 
       small {
-        font-size: calc((0.75 * var(--font-size)) + ((1.25 * var(--font-size-val))/2) * ((100vw - var(--page-min-size)) / (var(--page-max-size-val) - var(--page-min-size-val))));
+        font-size: 0.75rem;
         margin: 0;
       }
 
@@ -161,7 +177,7 @@
     </style>
     <div class="wrapper">
       <header>
-        <h1>Sweterek by Gosia</h1>
+        <h1>Your DREAM Sweater by dreamingyarn</h1>
       </header>
       <main>
         <img src="swetr.jpg" alt="Sweterek by Gosia" />
@@ -269,7 +285,7 @@
         </div>
       </main>
       <footer class="container">
-        <small>contact: instagram, email</small>
+        <small><a href="https://instagram.com/dreamingyarn" target="_blank">dreamingyarn @ instagram</a></small>
       </footer>
     </div>
     <script>
@@ -326,7 +342,7 @@
         const outputJ = Math.round(0.1 * rows * bodyAndSleevesFinishLength);
         const outputY = Math.round(outputA - 2 * outputD);
         const outputZ = Math.round(((sleeveLength - bodyAndSleevesFinishLength) * 0.1 * rows)/((2 * outputh + 2 * outputD - 2 * outputI)/2))
-        const outputK = Math.round((0.1 * rows * bodyLength) - (2 * outputY + 2 - outputA)/2 + outputH + outputJ);
+        const outputK = Math.round((0.1 * rows * bodyLength) - (((2 * outputY + 2 - outputA)/2) + outputH + outputJ));
         const outputL = mround((sleeveLength - bodyAndSleevesFinishLength) * 0.1 * rows, outputZ);
 
         document.querySelector('.output-A').textContent = outputA;
@@ -342,5 +358,6 @@
         document.querySelector('.output-Z').textContent = outputZ;
       });
     </script>
+    <noscript>This page requires JavaScript to work.</noscript>
   </body>
 </html>
